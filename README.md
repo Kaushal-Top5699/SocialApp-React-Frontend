@@ -1,12 +1,11 @@
-# React + Vite
+# Social App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project is the frontend part of the Microservice Architecture application built using React and Vite as the frontiers, along with Tailwind CSS for the responsive design. The backend built by the standards of micro service architecture is uses JAVA Spring Boot and NodeJS. The data is stored on MongoDB and Firebase Storage.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+1. User account creation.
+2. Post creation with likes and comments.
+3. Story posting that stays for 24h a feature alike to Instagram.
+4. User's can send connection requests to other users and see their profile and content.
+5. A user can send a message to any other user.
+6. Many more...
