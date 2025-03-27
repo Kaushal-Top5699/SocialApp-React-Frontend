@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import homeIcon from '../../../assets/home-2.svg'
 import friendsIcon from '../../../assets/friends-1.svg'
@@ -16,6 +16,8 @@ import photosIconWhite from '../../../assets/photos-white-1.svg'
 import marketPlaceIconWhite from '../../../assets/cart-white-1.svg'
 import filesIconWhite from '../../../assets/files-white-1.svg'
 
+import homeIconBlue from '../../../assets/home-blue-1.svg'
+
 import pageOne from '../../../assets/page-1.gif'
 import pageTwo from '../../../assets/page-2.gif'
 import pageThree from '../../../assets/page-3.gif'
@@ -28,19 +30,38 @@ export const MenuCard = () => {
     const menuIconsWhite = [homeIconWhite, friendsIconWhite, eventsIconWhite, videoIconWhite, photosIconWhite, marketPlaceIconWhite, filesIconWhite]
     const menuIconsSize = ["55", "55", "55", "55", "55", "55", "55"]
 
+    const [activeIndex, setActiveIndex] = useState(0);
+
     return (
         <div className='menu-card'>
             <div className='menu bg-white mt-5 rounded-lg p-2 flex flex-col justify-center items-center space-y-1'>
-                { menuItems.map((item, index) => (
-                    <div className='menu-cell flex items-center w-[95%] h-10 space-x-3 rounded-md group hover:bg-blue-500 cursor-pointer' 
-                        key={index}>
-                        <img className={`w-${menuIconsSize[index][0]} h-${menuIconsSize[index][1]} ml-3 group-hover:hidden`} 
-                             src={menuIcons[index]} alt='menu-icon'/>
-                        <img className={`w-${menuIconsSize[index][0]} h-${menuIconsSize[index][1]} ml-3 hidden group-hover:block`} 
-                             src={menuIconsWhite[index]} alt='menu-icon'/>
-                        <p className='text-gray-600 text-sm group-hover:text-white group-hover:font-semibold'>{item}</p>
+                {menuItems.map((item, index) => (
+                    <div
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`menu-cell flex items-center w-[95%] h-10 space-x-3 rounded-md group cursor-pointer hover:bg-blue-200
+                        ${activeIndex === index ? 'bg-blue-500' : 'hover:bg-blue-200'}`}
+                    >
+                    <img
+                        className={`w-${menuIconsSize[index][0]} h-${menuIconsSize[index][1]} ml-3 ${activeIndex === index ? 'hidden' : 'group-hover:hidden'}`}
+                        src={menuIcons[index]}
+                        alt='menu-icon'
+                    />
+                    <img
+                        className={`w-${menuIconsSize[index][0]} h-${menuIconsSize[index][1]} ml-3 ${activeIndex === index ? 'block' : 'hidden group-hover:block'}`}
+                        src={menuIconsWhite[index]}
+                        alt='menu-icon'
+                    />
+                    {/* <img
+                        className={`w-${menuIconsSize[index][0]} h-${menuIconsSize[index][1]} ml-3 ${activeIndex === index ? 'hidden' : 'hidden group-hover:block'}`}
+                        src={menuIconsWhite[index]}
+                        alt='menu-icon'
+                    /> */}
+                    <p className={`text-sm ${activeIndex === index ? 'text-white font-semibold' : 'text-gray-600 group-hover:text-blue-600'}`}>
+                        {item}
+                    </p>
                     </div>
-                )) } 
+                ))}
                 <div className='pages border-t-[0.5px] border-gray-400 w-[100%] p-2'>
                     <div className='mt-2 space-y-2 font-medium'>
                         <p className='text-sm text-gray-500 mb-2'>PAGES YOU LIKE</p>
